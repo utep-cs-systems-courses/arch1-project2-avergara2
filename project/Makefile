@@ -9,9 +9,9 @@ AS	= msp430-elf-as
 main.elf: ${COMMON_OBJECTS} main.o led.o buzzer.o
 	${CC} ${CFLAGS} ${LDFLAGS} -o main.elf main.o led.o buzzer.o
 
-led.o: led.c led.h
-
 buzzer.o: buzzer.c buzzer.h
+
+led.o: led.c led.h
 
 load: main.elf
 	msp430loader.sh main.elf

@@ -2,6 +2,5 @@
 #define buzzer_included
 
 void buzzer_init();
-void buzzer_period(short cycles);
 
 #endif

@@ -5,7 +5,5 @@
 int  main(void){
   
   led_start(); //calls the method that turns on the leds
-  buzzer_init();
-  buzzer_period(1000);
-  
+  buzzer_init();  
 }

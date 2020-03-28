@@ -2,13 +2,15 @@
 #include "buzzer.h"
 
 void buzzer_init(){
-  P2SEL2 = (BIT6 | BIT7);
-  P2SEL = BIT7;
-  P2SEL = BIT6;
-  P2DIR = BIT6;
-}
 
-void buzzer_period(short cycles){
-  CCR0 = cycles;
-  CCR1 = cycles >> 1;
+  WDTCTL = WDTPW + WDTHOLD;
+  P1DIR |= BIT2;
+  P1SEL |= BIT2;
+  
+  TA0CCR0 = 1000;
+  TA0CCTL1 = OUTMOD_7;
+  TA0CCR1 = 500;
+  TA0CTL = TASSEL_2 + MC_1;
+  __bis_SR_register(LPM0_bits);
+  
 }
